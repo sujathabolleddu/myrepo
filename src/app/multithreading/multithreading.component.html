@@ -1,0 +1,36 @@
+<pre>
+    Os contains processes
+Process contains Threads
+Each process can have only one thread running at a time
+
+Lifecycle of a Thread
+New, Runnable, Running(Non existent), Non Runnable(Block), Terminated
+Create a Thread Instance, Start a thread, Picked yp by thread schedular and running, (wait, sleep etc), once run method is executed
+
+Creation of Threads
+Thread can be created in two types
+Extend Thread class – M extends Thread have one run method , in main method M a = new M(), a.start()
+Implement Runnable Interface
+M class implements Runnable, have one run method
+M a = new M()
+Thread b = new Thread(a), b.start()
+Thread Scheduler
+
+Part of JVM that decides which thread should run
+Preemptive scheduling – higher priority task runs until it eneters wait
+Time slicing Scheduling – predefined slice of time and gets back to ready, then next thread starts based on prio
+
+Thread Pooling
+
+If we create many threads , OS may run out of system level threads
+Or each thread gets very less time for execution
+Thread Pool Pattern helps to save resources in multithreaded app
+We write concurrent code in form of parallel tasks and submit execution it to the instance of thread pool
+Instance controls the threads to execute these tasks
+Task Submitters – create and submit tasks
+Executor service – contains Task Queue and Thread pool, returns a future object for fine tuning the result
+Can take a runnable or callable object as input thread for execution
+
+Executors, when the fine tuning of result is not required
+
+</pre>

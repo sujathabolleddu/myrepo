@@ -1,0 +1,131 @@
+<pre>
+    Data Consistency
+CAP Theorem – Consistency, Availability, Partition Tolerance
+Availability or consistency
+
+ACID- Atomicity, Conistency, Isolation, Durability
+
+Two Phase commit Pattern
+ACID is mandatory
+Choosing consistency
+Transaction manager manages transaction
+Prepare phase
+Voting phase 
+Not in Microservices as of reliability on transaction manager, no voting response and timeout,
+Commit failure after successful vote
+Pending transactions lock resources
+Avoid custom impl
+Has scaling out issues
+Reduced throughput
+Anti pattern
+
+
+Saga Pattern
+Trading atomicity for availability and consistency
+Chooses availability
+Splits transaction into many requests called saga
+Tracks each request
+Centralized distributed transaction state
+Using saga log
+On fail we send compensate request and rollsback 
+Implemented by Saga execution coordinator(SEC) – state machine
+
+Routing Slip Pattern
+Manufacturing example
+Set of instructions attached to work
+Determine process steps
+, attach to message, message routed in sequence
+No state centralization
+Eventual consistency
+
+BASE – Basic availability, soft state, eventual consistency
+Microservice Elements
+Domain driven design
+
+Data Store
+No Distributed transaction – No two phase commit
+It will have performance impact
+Eventual consistency
+Event sourcing – Akka, Kafka, RabbitMQ
+Capture Data Change – Debezium
+User Interface 
+
+UI aggregation is necessary so user feels it consistent
+Server side page composition
+Client side composition
+Services
+
+Communication using Remote procedure invocation RPC – REST, SOAP, gRPC
+Messaging –
+Message or Event
+Broker or channel
+Publish/Subscribe
+Kafka, RabbitMQ
+Message format – XML, YAML, JSON(Text) or Binary – gRPC
+Exchanges using API’s and contracts – SOAP – WSDL, REST – Swagger, gRPC- IDL
+External configuration for diff env’s
+Can use DB or Archaius, Consul, Decider
+Distributed Services
+
+Service Registry to discover services like a phone book
+Each Services registers on start up and deregister during shutdown
+Eureka, ZooKeeper, Consul
+CORS comes into picture , should use HTTP headers(Access-control-Allow-Origin)
+Circuit breaker during network issues
+Invoke via proxy in order to deviate calls if needed
+Hystrix, Jrugged
+Gateway
+For clients to access individual  multiple services, and has unified interface
+Single entry points
+Handles cross cutting concerns – Authentication, Authorization
+Ideal place to handle API transaltaion
+Zuul, Netty, Finagle
+
+Security
+Identity and Access Management System IAM
+Provides single sign on
+Kerberos, OpenID , Oauth 2.0, SAML - protocols
+Okta, Keycloak, Shero
+Identity through access token
+JWT, Cookie
+
+Scalability and Availability
+Vertical scale – add more power to existing infra – more CPU and RAm
+Horizontal – more machines – service replications, clustering – client load balancing
+Load balancer – Round robin, based on weight , capacity
+Ribbon, Meraki – load balancing tools
+
+Monitoring
+Needs dashboard
+Kibana, Grafana, Splunk
+Health check – Heart bits
+Log Aggregation
+Logstash, Splunk, PaperTrial
+Exception Tracking
+Record exceptions in centralized
+Metrics
+DropWizrd, Spring Actuator, Promoetheus
+Auditing
+Rate Limiting
+Control API usage
+Defend DoS attacks – Limit traffic from particular source
+Monetize api’s
+Alerting
+Distributed Tracing
+Trace entire request using correlation id
+Dapper, Htrace, Zipkin
+Deployment
+
+Containers
+Docker, rkt
+Orchestrators
+Orchestrate containers – Kunernetes, Docker Swarm, Mesos
+Continuous Delivery – Jenkins, Asgard, Aminator
+
+Brown Field Microservices approach
+Old monolith to micro
+GreenField Microservices
+New system or application
+
+
+</pre>

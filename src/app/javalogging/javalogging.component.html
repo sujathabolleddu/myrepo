@@ -1,0 +1,48 @@
+<pre>Java Logging
+    Components
+    •	Logger - object responsible for capturing log records
+    •	Logging Handlers or Appender
+    •	Logging Formatters or Layouts
+    Types of Handler – custom by extending Handler class
+    •	StreamHandler – to output stream
+    •	ConsoleHandler – console
+    •	FileHandler – file in xml format
+    •	SocketHandler – remote TCP ports
+    •	MemoryHandler – in memory
+    Formatters – custome by extending Formatter
+    •	SimpleFormatter – (console )text
+    •	XMLFormatter – (file)  xml
+    Logging levels
+    •	Nine levels , seven standard , two special. Higher values – high prioirities
+    •	FINEST - 300
+    •	FINER - 400
+    •	FINE - 500
+    •	Config - 700
+    •	INFO – 800
+    •	WARNING – 900
+    •	SEVERE – 1000
+    •	OFF – Integer.MAX_VALUE – turns off
+    •	ALL – Integer.MIN_VALUE – captures everything
+    Logger.setLevel(Logger.INFO);
+    Logger.log(Level.INFO, “message”);
+    Logger.INFO(“message”)
+    Filter
+    There can be an optional filter, where LogRecord is its parameter to isLoggable, 
+    LOGGER.setFilter(new FilterExample()); - set on a class
+    Override  public boolean isLoggable(LogRecord record) to filter messages
+    Record has getMessage method
+    Logging frameworks
+    •	Log4J
+    •	Log4J2
+    •	SLF4J – Simple Logging Façade for Java
+    •	Logback
+    •	tinyLog
+    •	Preferred , Logback is default in Spring Boot
+    •	Log4J is old ,go for Log4J2
+    •	Logback uses SLF4j
+    •	
+    •	logback-core, slf4j-api
+    •	logback-classic dependency for runtime
+    •	private static final Logger  logger = LoggerFactory.logger(classname)
+    •	configuration file logback.xml  in classpath
+    </pre>

@@ -1,0 +1,46 @@
+<pre>
+    HttpCLient 
+HttpClient is a low level client for simplifying Http Communication
+HTTP protocol interception
+Secure HTTP connections - SSL/TLS
+HTTP proxy server handling
+Handles HTTP cookies
+Connection pooling for different hosts, keep alive strategy,
+multi-threaded request execution
+Rest Assured 
+simplified testing of REST based services built over HTTP
+Validating REST API response using inbuilt Hemcrest Matchers
+JSON & XML serialization and deserialization
+Extracting JSON data using JsonPath and XML data using XmlPath
+Verifying response body, cookies, headers, content-type and http status
+Authentication using Basic Auth, Digest Auth, Form Authentication (CSRF support), OAuth (OAuth1 and OAuth2)
+verifying multi-part form data
+Request and response logging for easy troubleshooting
+Session Filters
+Spring Mock Mvc Module
+Spring Web Test Client Module
+Kotlin support
+
+
+RestAssured.baseURI = url + "/" + tid;
+        StringBuilder authorization = new StringBuilder();
+        authorization.append(usr).append(":").append(pwd);
+        String authHeader = "Basic " + Base64.getEncoder().encodeToString(authorization.toString().getBytes());
+
+        RequestSpecification httpRequest = RestAssured.given().header("Authorization", authHeader)
+                .header("Content-Type", "application/json")
+                .header("Accept", "application/vnd.dsttechnologies.awd+xml");
+        Response response = httpRequest.request(Method.GET);
+
+
+Rest Template
+RestTemplate is also a high level REST client which uses HttpClient under the hood, but it is mostly used in development rather than testing. It lacks most of the testing related features readily available in REST Assured like - Assertion capabilities - inbuilt Hemcrest matchers support, ease of use from testing perspective, out of the box support for various authentication protocols, ease of logging requests response, measuring request time, etc.
+Spring Webclient
+Spring WebClient was introduced in Spring Boot 2 for reactive programming. It has following advantages over conventional RestTemplate:
+It is non-blocking & reactive in nature, so you can achieve more throughput with limited threads. This should definitely reduce the hardware requirements.
+It has more functional feel. WebClient has a functional, fluent API with reactive types for declarative composition.
+It has all the features that RestTemplate has to offer in cloud native environment (Load balancing, token relay, oauth2 handling, etc.)
+
+https://www.javacodemonk.com/rest-assured-vs-apache-httpclient-and-resttemplate-b50fa3b5
+
+</pre>

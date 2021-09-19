@@ -1,0 +1,79 @@
+<pre>
+    Jersey
+
+JAX-RS Implementation – Jersey, RestEasy
+Annotations
+@Path(“/hello”)
+@GET
+@Produces(MEDIA_TYPE.)
+@PathParam
+@FormParam
+@QueryParam
+@HeaderParam
+@CookieParam
+Testing jersey
+Org.glassfish.jersey.client.ClientConfig
+
+Javax.ws.rx.client. Client, ClientBuilder, WebTarget, UriBuilder
+
+ClientConfig config = new ClientConfig();
+Client client = ClientBuilder.newClient(config)
+WebTarget target = client.traget(getBaseUri);
+
+Jersey servlet : org.glassfish.jersey.servlet.ServletContainer
+1.	   init-param
+    2.	        param-name>jersey.config.server.provider.packages param-name
+    3.	        param-value>com.javatpoint.rest param-value  
+    4.	    init-param
+
+    Response object building 
+Response.status(200)  .entity("getDate is called, year/month/day : " + date)    .build();  
+  ResponseBuilder response = Response.ok((Object) file);  
+response.header("Content-Disposition","attachment; filename=\"javatpoint_file.txt\"");  
+        return response.build();  
+        Spring Rest
+        @RestController - @Controller plus @ResponseBody – no need on each method
+        @GetMapping
+        @PostMapping – accepts @RequestBody(“/pathname”)
+        Object create(@RequestBody Object obj)
+        @PutMapping
+        @DeleteMapping(“/pathname/ flower brace id”)
+        Void delete(@PathVariable Integer id)
+        @RequestParam – optional parameters – required = false
+        ErrorHandling
+Two types of error messages
+HTTP status codes
+Text messages
+JSON Messages
+ErrorMessage classes
+
+Response Entity – can send a happy path and exception path
+@ExceptionHandler – can handle exceptions – return error message – can use in same class in a different method
+When exceptions are routed to a different class, annotate with
+@ControllerAdvice – global exception handling – send error message
+And has @ExceptionHandler
+
+ResponseEntity(object, HTTPStatus)
+Validation
+Validate in model,annotate constraints properties, add @valid on input ,Method ArgumentNotValidException
+@NotNull,@AssertTreue,@Max,@Min,@size,@Digits,@Pattern,@NotEmpty, @NotBlank(Nowhitespaces),@Positive,@Negative,@Email,@Past,@Future
+Testing
+Data Layer testing
+@DataJpaTest
+@WebMvcTest on class
+
+@MockBean
+Autowire MockMvc
+HTTP Status codes
+
+1XX – Informational
+2xx – Success
+3xx- Redirection
+4xx- Client errors
+5xx- Server errors
+
+                
+    
+ 
+
+</pre>>
